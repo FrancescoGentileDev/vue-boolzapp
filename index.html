@@ -48,7 +48,7 @@
                         <div class="profile-button d-flex align-items-center">
                             <button><i class="fas fa-circle"></i></button>
                             <button><i class="fas fa-message"></i></button>
-                            <button><i class="fas fa-list-dots"></i></button>
+                            <button><i class="fas fa-ellipsis-v"></i></button>
                         </div>
 
                     </div>
@@ -67,9 +67,9 @@
                     <input class="col-10" type="text" name="research" id="research">
                 </section>
 
-                <section class="chats">
+                <aside class="contacts">
                     
-                    <article class="chat selected">
+                    <article class="contact selected">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                     </article>
-                    <article class="chat">
+                    <article class="contact">
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img src="assets/img/avatar_1.jpg" alt="">
@@ -161,14 +161,42 @@
                     </article>
 
 
-                </section>
+                </aside>
 
             </div>
             <!--#endregion CONTACT SECTION-->
 
             <!--#region CHAT SECTION-->
-            <section class="col-8" id="chatView">
+            <section class="col-8 h-100 d-flex flex-column" id="chat-view">
                 
+                <header id="contact-header">
+                    <div class="profile-container d-flex justify-content-between">
+                        <div class="profile d-flex align-items-center">
+                            <img src="assets/img/avatar_1.jpg" alt="">
+                            <div class="profile-texts row ms-3 p-0 m-0">
+                                <p class="fw-semibold m-0">brobbolo</p>
+                                <p class="fw-light m-0">Ultimo accesso</p>
+                            </div>
+                        </div>
+
+                        <div class="profile-button d-flex align-items-center">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button><i class="fas fa-paperclip"></i></button>
+                            <button><i class="fas fa-ellipsis-vertical"></i></button>
+                        </div>
+
+                    </div>
+                </header>
+
+                <section class="messages flex-grow-1">
+
+                </section>
+
+                <section class="send-message d-flex">
+                    <button><i class="fa-regular fa-face-smile"></i></button>
+                    <input type="text">
+                    <button class="send-message"><i class="fa-regular fa-microphone"></i></button>
+                </section>
             </section>
             <!--#endregion CHAT SECTION-->
         </div>

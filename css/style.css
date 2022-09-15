@@ -1,16 +1,19 @@
 :root {
     --brand-color: #009688;
-    --secondary-color: #d9dbd4;
+    --secondary-color: rgb(234, 234, 234);
     --tertiary-color: #fafafa;
     --button-primary-color: #b1b1b1;
     --alert-notification-color: #8edafc;
     --basic-background-color: white;
-    --selected-chat-color: #e9ebeb
+    --selected-chat-color: #e9ebeb;
+    --send-message-background: #f3eeea;
+
 
 }
 
 body {
-    background-color: var(--secondary-color);
+    height: 100%;
+    background: linear-gradient(180deg, rgba(243,238,234,1) 0%, rgb(192, 212, 212) 40%) fixed;
 }
 
 button {
@@ -50,10 +53,6 @@ button {
     margin: 0;
 }
 
-#chatView {
- background-color: aqua;
-}
-
 
 /*#region PROFILE COMPONENT*****/
 .profile-container {
@@ -74,7 +73,8 @@ button {
 /*#endregion PROFILE COMPONENT*****/
 
 
-/*#region CONTACT*****/
+/*#region ASIDE*****/
+
 
 /*#region CONTACT HEADER*****/
 
@@ -122,23 +122,56 @@ button {
 }
 /*#endregion RESEARCH*****/
 
-/*#region CHAT*****/
-.chats {
+/*#region CONTACTS*****/
+.contacts {
     height: 100%;
     overflow-y: auto;
 }
-.chat.selected {
+.contact.selected {
     background-color: var(--selected-chat-color)
 }
 
 
-.chat .profile-texts :last-child  {
+.contact .profile-texts :last-child  {
    font-size: 0.8rem;
    color: var(--button-primary-color)
 }
 
 
-/*#endregion CHAT*****/
+/*#endregion CONTACTS*****/
 
 
-/*#endregion CONTACT*****/
+/*#endregion ASIDE*****/
+
+
+/*#region CHATVIEW*****/
+
+/*#region contact header*****/
+#chat-view {
+ padding:0;
+ border-left: 1px solid var(--button-primary-color);
+ background-image: url(../assets/img/mine.jpg);
+ background-repeat: round;
+}
+
+#contact-header {
+    background-color: var(--secondary-color);
+    padding:0;
+    margin: 0;
+}
+/*#endregion contact header*****/
+
+
+/*#region messages*****/
+.messages {
+    background-color: aqua; 
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+}
+/*#endregion messages*****/
+.send-message {
+ background-color: var(--send-message-background);
+}
+
+/*#endregion CHATVIEW*****/
