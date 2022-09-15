@@ -129,6 +129,20 @@ button {
     height: 100%;
     overflow-y: auto;
 }
+.contact {
+    user-select: none;
+    cursor: pointer;
+    border-top: 1px solid var(--secondary-color)
+}
+.contact:last-child {
+    border-bottom:1px solid var(--secondary-color) ;
+}
+.contact:active {
+    background-color: var(--selected-chat-color);
+}
+
+
+
 .contact.selected {
     background-color: var(--selected-chat-color)
 }
@@ -177,7 +191,7 @@ button {
     margin: 0.5rem;
     background-color: var(--basic-background-color);
     padding: 0.8rem 1rem 0.8rem 0.8rem;
-    min-width: 200px;
+    min-width: 300px;
     max-width: 400px;
     border-radius: 1rem;
     align-items: flex-end !important
@@ -188,7 +202,7 @@ button {
 }
 
 
-.message.send {
+.message.sent {
     align-self: flex-end;
     background-color: var(--message-color);
 }
