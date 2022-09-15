@@ -125,7 +125,7 @@
                             </div>
                             <div class="message-hour text-end">
                                 {{getMessageHour(message)}}
-                                <i v-if="message.sent" class="fa-solid fa-check-double"></i>
+                                <i v-if="message.sent" class="fa-solid fa-check-double" :class="{'color-blue': message.isRead}"></i>
                             </div>
                         </div>
                     </div>

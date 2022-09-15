@@ -230,7 +230,10 @@ button {
 }
 
 .fa-check-double {
-    color: blue
+    color: rgb(48, 48, 48)
+}
+.color-blue {
+    color: blue !important;
 }
 /*#endregion send messages*****/
 

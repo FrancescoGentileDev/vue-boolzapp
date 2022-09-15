@@ -5,6 +5,7 @@ class Message {
     this.message = message;
     this.sent = sent;
     this.status = "Online";
+    this.isRead = false;
     this.date = new Date();
   }
 }
@@ -44,7 +45,9 @@ const app = new Vue({
       const randomNumber = Math.floor(Math.random() * (randReply.length - 1));
 
       setTimeout(() => {
-        this.contacts[contact].status = "Sta scrivendo...";
+        const replier = this.contacts[contact];
+        replier.status = "Sta scrivendo...";
+        replier.messages[replier.messages.length - 1].isRead = true;
         setTimeout(() => {
           const message = new Message(randReply[randomNumber], false);
           this.contacts[contact].messages.push(message);
