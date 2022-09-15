@@ -7,5 +7,9 @@ const app = new Vue({
         activeContact: 0
     },
     methods: {
+        getMessageHour: (message) => {
+            const date = new Date(message.date);
+            return `${date.getHours()}:${date.getMinutes()}`
+        }
     },
 })
