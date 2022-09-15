@@ -153,7 +153,6 @@ button {
    color: var(--button-primary-color)
 }
 
-
 /*#endregion CONTACTS*****/
 
 
@@ -211,7 +210,7 @@ button {
 /*#endregion messages*****/
 
 /*#region send messages*****/
-.send-message {
+.send-message, .button-send-message {
  background-color: var(--send-message-background);
  padding: 0.5rem
 }
@@ -223,6 +222,11 @@ button {
     border: 1px solid var(--button-primary-color);
 
     border-radius: 10px;
+}
+
+.send-message input:not(:placeholder-shown) + .button-send-message i::before
+{
+    content: ""
 }
 /*#endregion send messages*****/
 

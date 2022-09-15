@@ -27,17 +27,17 @@ let contacts= [
     visible: true,
     messages: [
     {
-    date: '20/03/2020 16:30:00',
+    date: '10/10/2020 16:30:00',
     message: 'Ciao come stai?',
     sent: true
     },
     {
-    date: '20/03/2020 16:30:55',
+    date: '10/03/2020 16:30:55',
     message: 'Bene grazie! Stasera ci vediamo?',
     sent: false
     },
     {
-    date: '20/03/2020 16:35:00',
+    date: '10/03/2020 16:35:00',
     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
     sent: true
     }
@@ -49,17 +49,17 @@ let contacts= [
     visible: true,
     messages: [
     {
-    date: '28/03/2020 10:10:40',
+    date: '03/28/2020 10:10:40',
     message: 'La Marianna va in campagna',
     sent: false
     },
     {
-    date: '28/03/2020 10:20:10',
+    date: '03/28/2020 10:20:10',
     message: 'Sicuro di non aver sbagliato chat?',
     sent: true
     },
     {
-    date: '28/03/2020 16:15:22',
+    date: '03/28/2020 16:15:22',
     message: 'Ah scusa!',
     sent: false
     }
