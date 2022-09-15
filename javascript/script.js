@@ -17,7 +17,19 @@ const app = new Vue({
     activeContact: 0,
     userInput: "",
   },
-  methods: {
+    methods: {
+        getLastMessage(contact) {
+            let message = ""
+                message = contact.messages[contact.messages.length - 1].message
+            if (message.length >= 60){
+                message = message.substring(0, 60)
+                message += "..."
+            }
+
+
+            return message
+        },
+
     getMessageHour: (message) => {
       const date = new Date(message.date);
       return `${date.getHours()}:${date.getMinutes()}`;
@@ -53,7 +65,7 @@ const app = new Vue({
           this.contacts[contact].messages.push(message);
           this.scrollToBottom();
           this.contacts[contact].status = "Online";
-        }, 1000);
+        }, 3000);
       }, 1000);
     },
     scrollToBottom() {

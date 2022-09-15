@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-<!--#region FONTAWESOME-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!--#region FONTAWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -40,7 +41,7 @@
             <!--#region CONTACT SECTION-->
 
             <div class="col-4 d-flex flex-column h-100" id="contacts">
-                
+
                 <header id="my-profile">
                     <div class="profile-container d-flex justify-content-between">
                         <div class="profile d-flex align-items-center">
@@ -71,23 +72,27 @@
                 </section>
 
                 <aside class="contacts">
-                    <article class="contact"
-                     v-for="(contact, index) in contacts" 
-                     :key="index" 
-                     :class="(activeContact === index) ? 'selected' : '' "
-                     @click="activeContact = index">
+                    <article class="contact" v-for="(contact, index) in contacts" :key="index"
+                        :class="(activeContact === index) ? 'selected' : '' " @click="activeContact = index">
 
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
                                 <img :src="'assets/img/avatar'+contact.avatar+'.jpg'" alt="">
                                 <div class="profile-texts row ms-3 p-0 m-0">
                                     <p class="fw-semibold m-0">{{contact.name}}</p>
-                                    <p class="fw-light m-0">{{contact.messages[contact.messages.length-1].message}}</p>
+                                    <p class="fw-light m-0">
+                                        <i v-if="contact.messages[contact.messages.length-1].sent"
+                                            class="fa-solid fa-check-double"
+                                            :class="{'color-blue': contact.messages[contact.messages.length-1].isRead}">
+                                        </i>
+                                        {{getLastMessage(contact)}}
+                                    </p>
+                                    <span class="mt-2">{{getMessageHour(contact.messages[contact.messages.length-1])}}</span>
                                 </div>
                             </div>
 
                     </article>
-                    
+
 
                 </aside>
 
@@ -96,7 +101,7 @@
 
             <!--#region CHAT SECTION-->
             <section class="col-8 h-100 d-flex flex-column" id="chat-view">
-                
+
                 <header id="contact-header">
                     <div class="profile-container d-flex justify-content-between">
                         <div class="profile d-flex align-items-center">
@@ -117,15 +122,17 @@
                 </header>
 
                 <section class="messages flex-grow-1 d-flex flex-column align-items-start">
-                   
-                    <div class="message" v-for="(message, index) in contacts[activeContact].messages" :class="{sent: message.sent}" :key="index">
+
+                    <div class="message" v-for="(message, index) in contacts[activeContact].messages"
+                        :class="{sent: message.sent}" :key="index">
                         <div class="message-text d-flex-column">
                             <div class="message-content">
                                 {{message.message}}
                             </div>
                             <div class="message-hour text-end">
                                 {{getMessageHour(message)}}
-                                <i v-if="message.sent" class="fa-solid fa-check-double" :class="{'color-blue': message.isRead}"></i>
+                                <i v-if="message.sent" class="fa-solid fa-check-double"
+                                    :class="{'color-blue': message.isRead}"></i>
                             </div>
                         </div>
                     </div>
@@ -135,8 +142,10 @@
 
                 <section class="send-message d-flex align-items-center justify-content-between">
                     <button><i class="fa-regular fa-face-smile"></i></button>
-                    <input v-model="userInput" class="flex-grow-1 py-2 mx-4" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage" type="text">
-                    <button class="button-send-message" @click="sendMessage" ><i class="fa-solid fa-microphone"></i></button>
+                    <input v-model="userInput" class="flex-grow-1 py-2 mx-4" placeholder="Scrivi un messaggio"
+                        @keyup.enter="sendMessage" type="text">
+                    <button class="button-send-message" @click="sendMessage"><i
+                            class="fa-solid fa-microphone"></i></button>
                 </section>
             </section>
             <!--#endregion CHAT SECTION-->
@@ -157,7 +166,7 @@
 
 
 
-    
+
     <script type="module" src="./javascript/data.js"></script>
     <script type="module" src="javascript/script.js"></script>
     <!--#region BOOTSTRAP SCRIPT-->
