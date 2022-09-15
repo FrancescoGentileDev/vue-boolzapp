@@ -10,6 +10,10 @@ const app = new Vue({
         getMessageHour: (message) => {
             const date = new Date(message.date);
             return `${date.getHours()}:${date.getMinutes()}`
-        }
+        },
+        getSelected(index) {
+           return (this.activeContact === index) ? "selected" : ""
+        },
+
     },
 })
