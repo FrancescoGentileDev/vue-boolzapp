@@ -5,6 +5,7 @@
     --button-primary-color: #b1b1b1;
     --alert-notification-color: #8edafc;
     --basic-background-color: white;
+    --selected-chat-color: #e9ebeb
 
 }
 
@@ -29,13 +30,14 @@ button {
 
 
 #app {
-    position:absolute;    
+    position:absolute;
     width: 80%;
     height: 90vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
+    overflow-y: hidden;
 }
 
 #app > div {
@@ -53,7 +55,23 @@ button {
 }
 
 
+/*#region PROFILE COMPONENT*****/
+.profile-container {
+    padding: 0.8rem
+}
+.profile img{
+    width: 3rem;
+    clip-path: circle(50%);
+}
+.profile {
+    font-weight: 400;
+}
 
+.profile-button * {
+    font-size: 1.5rem;
+    padding: 0.5rem
+}
+/*#endregion PROFILE COMPONENT*****/
 
 
 /*#region CONTACT*****/
@@ -63,24 +81,6 @@ button {
 #my-profile {
     background-color: var(--secondary-color);
 }
-    .my-profile-container {
-        padding: 0.8rem
-    }
-    .my-profile img{
-        width: 3rem;
-        clip-path: circle(50%);
-    }
-    .my-profile {
-        font-weight: 400;
-    }
-
-    .my-profile-button * {
-        font-size: 1.5rem;
-        padding: 0.5rem
-    }
-
-
-
 /*#endregion CONTACT HEADER*****/
 
 
@@ -120,10 +120,25 @@ button {
 .research-bar > button {
     background-color: white;
 }
-
-
 /*#endregion RESEARCH*****/
 
+/*#region CHAT*****/
+.chats {
+    height: 100%;
+    overflow-y: auto;
+}
+.chat.selected {
+    background-color: var(--selected-chat-color)
+}
+
+
+.chat .profile-texts :last-child  {
+   font-size: 0.8rem;
+   color: var(--button-primary-color)
+}
+
+
+/*#endregion CHAT*****/
 
 
 /*#endregion CONTACT*****/
