@@ -1,6 +1,7 @@
 :root {
     --brand-color: #009688;
     --secondary-color: #d9dbd4;
+    --tertiary-color: #fafafa;
     --button-primary-color: #b1b1b1;
     --alert-notification-color: #8edafc;
     --basic-background-color: white;
@@ -107,8 +108,18 @@ button {
 
 /*#region RESEARCH*****/
 
-
-
+.research-bar {
+    background-color: var(--tertiary-color);
+    padding: 0.6rem
+}
+.research-bar > * {
+    border: 1px solid var(--secondary-color);
+    height: 2.5rem
+    
+}
+.research-bar > button {
+    background-color: white;
+}
 
 
 /*#endregion RESEARCH*****/
