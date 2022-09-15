@@ -1,11 +1,24 @@
 :root {
     --brand-color: #009688;
     --secondary-color: #d9dbd4;
+    --button-primary-color: #b1b1b1;
+    --alert-notification-color: #8edafc;
+    --basic-background-color: white;
+
 }
 
 body {
     background-color: var(--secondary-color);
 }
+
+button {
+    color: var(--button-primary-color);
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 
 .background-separator {
     width: 100vw;
@@ -29,7 +42,9 @@ body {
     margin: 0;
 }
 
-#contactSelection {
+#contacts {
+    padding: 0;
+    margin: 0;
 }
 
 #chatView {
@@ -43,13 +58,60 @@ body {
 /*#region CONTACT*****/
 
 /*#region CONTACT HEADER*****/
-    #contacts > header {
-        height: 5rem;
+
+#my-profile {
+    background-color: var(--secondary-color);
+}
+    .my-profile-container {
+        padding: 0.8rem
     }
+    .my-profile img{
+        width: 3rem;
+        clip-path: circle(50%);
+    }
+    .my-profile {
+        font-weight: 400;
+    }
+
+    .my-profile-button * {
+        font-size: 1.5rem;
+        padding: 0.5rem
+    }
+
+
+
 /*#endregion CONTACT HEADER*****/
 
 
+/*#region NOTIFICATION ALERT*****/
+.notification-alert {
+    background-color: var(--alert-notification-color);
+    padding: 1rem
+}
+.notification-alert .icon {
+    --size: 3rem;
+    font-size: calc(var(--size) / 2);
+    text-align: center;
+    line-height: var(--size);
+    color: var(--alert-notification-color);
+    background-color: var(--basic-background-color);
+    width: var(--size);
+    height: var(--size);
+    clip-path: circle(50%);
+    margin-right: 1rem;
+}
 
+
+/*#endregion NOTIFICATION ALERT*****/
+
+
+/*#region RESEARCH*****/
+
+
+
+
+
+/*#endregion RESEARCH*****/
 
 
 
