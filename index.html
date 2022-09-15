@@ -103,7 +103,7 @@
                             <img :src="'assets/img/avatar'+contacts[activeContact].avatar+'.jpg'" alt="">
                             <div class="profile-texts row ms-3 p-0 m-0">
                                 <p class="fw-semibold m-0">{{contacts[activeContact].name}}</p>
-                                <p class="fw-light m-0">Ultimo accesso</p>
+                                <p class="fw-light m-0">{{contacts[activeContact].status}}</p>
                             </div>
                         </div>
 
@@ -125,6 +125,7 @@
                             </div>
                             <div class="message-hour text-end">
                                 {{getMessageHour(message)}}
+                                <i v-if="message.sent" class="fa-solid fa-check-double"></i>
                             </div>
                         </div>
                     </div>
