@@ -40,7 +40,7 @@
 
             <!--#region CONTACT SECTION-->
 
-            <div class="col-4 d-flex flex-column h-100" id="contacts">
+            <aside class="col-4 d-flex flex-column h-100" id="contacts">
 
                 <header id="my-profile">
                     <div class="profile-container d-flex justify-content-between">
@@ -67,12 +67,12 @@
                 </section>
 
                 <section class="research-bar row m-0">
-                    <button class="col-2"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input class="col-10" type="text" name="research" id="research">
+                    <button class="col-2"><i class="fa-solid fa-magnifying-glass" @click="makeResearch"></i></button>
+                    <input class="col-10" type="text" name="research" id="research" v-model="researchBarValue" @keyup="makeResearch">
                 </section>
 
-                <aside class="contacts">
-                    <article class="contact" v-for="(contact, index) in contacts" :key="index"
+                <div class="contacts">
+                    <article class="contact" v-for="(contact, index) in researchResult" :key="index"
                         :class="(activeContact === index) ? 'selected' : '' " @click="activeContact = index">
 
                         <div class="profile-container d-flex justify-content-between">
@@ -94,9 +94,9 @@
                     </article>
 
 
-                </aside>
+                </div>
 
-            </div>
+            </aside>
             <!--#endregion CONTACT SECTION-->
 
             <!--#region CHAT SECTION-->

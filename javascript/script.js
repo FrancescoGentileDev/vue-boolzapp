@@ -16,19 +16,23 @@ const app = new Vue({
     contacts,
     activeContact: 0,
     userInput: "",
+    researchBarValue: "",
+    researchResult: [],
   },
-    methods: {
-        getLastMessage(contact) {
-            let message = ""
-                message = contact.messages[contact.messages.length - 1].message
-            if (message.length >= 60){
-                message = message.substring(0, 60)
-                message += "..."
-            }
+  mounted() {
+    this.researchResult= [...contacts]
+  },
+  methods: {
+    getLastMessage(contact) {
+      let message = "";
+      message = contact.messages[contact.messages.length - 1].message;
+      if (message.length >= 60) {
+        message = message.substring(0, 60);
+        message += "...";
+      }
 
-
-            return message
-        },
+      return message;
+    },
 
     getMessageHour: (message) => {
       const date = new Date(message.date);
@@ -38,6 +42,21 @@ const app = new Vue({
       return this.activeContact === index ? "selected" : "";
     },
 
+    makeResearch() {
+      const researched = [];
+
+      this.contacts.forEach((value, index, array) => {
+        let { name } = value;
+        let ciao = "";
+
+        if (name.toLowerCase().startsWith(this.researchBarValue.toLowerCase(), 0)) {
+          researched.push(value);
+        }
+      });
+      this.researchResult = [...researched]
+      
+
+    },
     sendMessage() {
       const message = new Message(this.userInput, true);
       this.contacts[this.activeContact].messages.push(message);
