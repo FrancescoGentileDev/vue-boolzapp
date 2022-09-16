@@ -241,7 +241,7 @@ button:not(.research-bar button):not(.messages .message-menu button):active {
     height: 1.5rem !important;
     top: 0;
     right: 0;
-    color: rgba(128, 128, 128, 0.151);
+    color: rgba(128, 128, 128, 0.315);
 }
 .option-opener:hover {
     color: rgba(128, 128, 128, 1);

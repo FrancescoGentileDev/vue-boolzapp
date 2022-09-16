@@ -82,14 +82,13 @@
                                 <div class="profile-texts row ms-3 p-0 m-0">
                                     <p class="fw-semibold m-0">{{contact.name}}</p>
                                     <p class="fw-light m-0">
-                                        <i v-if="contact.messages[contact.messages.length-1].sent"
+                                        <i v-if="contact.messages[getLastMessageIndex(contact)].sent"
                                             class="fa-solid fa-check-double"
-                                            :class="{'color-blue': contact.messages[contact.messages.length-1].isRead}">
+                                            :class="{'color-blue': contact.messages[getLastMessageIndex(contact)].isRead}">
                                         </i>
                                         {{getLastMessage(contact)}}
                                     </p>
-                                    <span
-                                        class="mt-2">{{getMessageHour(contact.messages[contact.messages.length-1])}}</span>
+                                    <p class="">{{getMessageHour(contact.messages[getLastMessageIndex(contact)])}}</p>
                                 </div>
                             </div>
 
@@ -138,7 +137,8 @@
                             </div>
                         </div>
 
-                        <button class="option-opener" @click="openMenu(index)"><i class="fa-solid fa-chevron-down"></i></button>
+                        <button class="option-opener" @click="openMenu(index)"><i
+                                class="fa-solid fa-chevron-down"></i></button>
                         <div class="message-menu d-flex flex-column justify-content-between" :id="'menu-'+index">
                             <button>Info message</button>
                             <button @click="message.hide = true">Delete Message</button>

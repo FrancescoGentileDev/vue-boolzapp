@@ -28,8 +28,9 @@ const app = new Vue({
   },
   methods: {
     getLastMessage(contact) {
-      let message = "";
-      message = contact.messages[contact.messages.length - 1].message;
+      let message = contact.messages[this.getLastMessageIndex(contact)].message;
+      let check = false;
+      
       if (message.length >= 60) {
         message = message.substring(0, 60);
         message += "...";
@@ -37,6 +38,18 @@ const app = new Vue({
 
       return message;
     },
+
+    getLastMessageIndex(contact) {
+      let messages = contact.messages
+      let index = undefined;
+      for (let i = messages.length - 1; i >= 0; i--) {
+        if (!index && !messages[i].hide) {
+          index = i
+        }
+      }
+      return index;
+    },
+
     getMessageHour: (message) => {
       const date = new Date(message.date);
       return `${date.getHours()}:${date.getMinutes()}`;
@@ -115,10 +128,10 @@ const app = new Vue({
       let menu = document.getElementById("menu-" + index);
       if (menu.classList.contains("open")) {
         menu.classList.remove("open");
-        return true
+        return true;
       } else {
         menu.classList.add("open");
-        return false
+        return false;
       }
     },
   },
