@@ -23,6 +23,9 @@ const app = new Vue({
     emojiKeyboard: false,
   },
   mounted() {
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('hide')
+    }, 500)
     this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];
   },

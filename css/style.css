@@ -73,9 +73,28 @@ button:not(.research-bar button):not(.messages .message-menu button):active {
     margin: 0;
 }
 
+/*#region LOADER*****/
+.loader {
+    position:absolute;
+    background-color: var(--selected-chat-color);
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.loader.hide {
+    display: none !important;
+}
+.spinner-border {
+    color: var(--brand-color);
+    width: 4rem;
+    height: 4rem;
+}
+/*#endregion LOADER*****/
+
 
 /*#region PROFILE COMPONENT*****/
 .profile-container {
+    user-select: none;
     padding: 0.8rem
 }
 .profile img{
