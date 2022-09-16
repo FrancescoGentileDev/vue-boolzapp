@@ -20,7 +20,7 @@ const app = new Vue({
     researchResult: [],
   },
   mounted() {
-    this.researchResult= [...contacts]
+    this.researchResult = [...contacts];
   },
   methods: {
     getLastMessage(contact) {
@@ -46,16 +46,25 @@ const app = new Vue({
       const researched = [];
 
       this.contacts.forEach((value, index, array) => {
-        let { name } = value;
-        let ciao = "";
+        const { name } = value;
+        const fullnames = name.split(" ");
+        let check = false;
 
-        if (name.toLowerCase().startsWith(this.researchBarValue.toLowerCase(), 0)) {
-          researched.push(value);
-        }
+        fullnames.forEach((element) => {
+          element = element.toLowerCase();
+          let researchString = this.researchBarValue.toLowerCase();
+
+          if (element.startsWith(researchString, 0) && !check) {
+            check = true
+            researched.push(value);
+          }
+          
+        });
+
+
       });
-      this.researchResult = [...researched]
-      
 
+      this.researchResult = [...researched];
     },
     sendMessage() {
       const message = new Message(this.userInput, true);
