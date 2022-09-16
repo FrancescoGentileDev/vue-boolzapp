@@ -37,6 +37,10 @@
 
     <div id="app">
         <div class="loader d-flex flex-column justify-content-center align-items-center">
+           <div class="bool-logo">
+               <img class="w-100" src="./assets/img/boolzap logo.png" alt="logo">
+           </div>
+
             <div class="spinner-border fs-4" role="status">
                 <span class="sr-only">Loading...</span>
               </div>
@@ -55,7 +59,10 @@
                         </div>
 
                         <div class="profile-button d-flex align-items-center">
-                            <button><i class="fas fa-circle"></i></button>
+                            <label class="switch">
+                                <input type="checkbox" @change="toggleDarkMode">
+                                <span class="slider round"></span>
+                              </label>
                             <button><i class="fas fa-message"></i></button>
                             <button><i class="fas fa-ellipsis-v"></i></button>
                         </div>
@@ -72,8 +79,8 @@
                 </section>
 
                 <section class="research-bar row m-0">
-                    <button class="col-2"><i class="fa-solid fa-magnifying-glass" @click="makeResearch"></i></button>
-                    <input class="col-10" placeholder="Ricerca contatto" type="text" name="research" id="research"
+                    <button class="col-2"><i class="fa-solid fa-magnifying-glass input-color" @click="makeResearch"></i></button>
+                    <input class="col-10 input-color" placeholder="Ricerca contatto" type="text" name="research" id="research"
                         v-model="researchBarValue" @keyup="makeResearch">
                 </section>
 
@@ -166,7 +173,7 @@
                     <div class="send-message-inputs d-flex align-items-center justify-content-between">
                         <button><i class="fa-regular fa-face-smile"
                                 @click="emojiKeyboard = !emojiKeyboard"></i></button>
-                        <input v-model="userInput" class="flex-grow-1 py-2 mx-4" placeholder="Scrivi un messaggio"
+                        <input v-model="userInput" class="flex-grow-1 py-2 mx-4 input-color" placeholder="Scrivi un messaggio"
                             @keyup.enter="sendMessage" type="text">
                         <button class="button-send-message" @click="sendMessage"><i
                                 class="fa-solid fa-microphone"></i></button>

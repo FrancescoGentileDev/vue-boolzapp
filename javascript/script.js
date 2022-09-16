@@ -23,13 +23,18 @@ const app = new Vue({
     emojiKeyboard: false,
   },
   mounted() {
-    setTimeout(() => {
-      document.querySelector('.loader').classList.add('hide')
-    }, 500)
+
+     document.querySelector('.loader').classList.add('hide')
+
     this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];
   },
   methods: {
+    toggleDarkMode() {
+      document.body.classList.toggle('darkMode')
+      document.getElementById('chat-view').classList.toggle('chatDark')
+
+    },
     getLastMessage(contact) {
       let message = contact.messages[this.getLastMessageIndex(contact)].message;
       let check = false;
