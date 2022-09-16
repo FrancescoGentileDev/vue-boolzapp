@@ -23,8 +23,10 @@ const app = new Vue({
     emojiKeyboard: false,
   },
   mounted() {
-
-     document.querySelector('.loader').classList.add('hide')
+    setTimeout(() => {
+       document.querySelector('.loader').classList.add('hide')
+    }, 700);
+    
 
     this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];

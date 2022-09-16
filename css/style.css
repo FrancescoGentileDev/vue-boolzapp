@@ -15,6 +15,8 @@ body {
   --selected-chat-color: #e9ebeb;
   --send-message-background: #f3eeea;
   --contacts-color: white;
+  --text-color: rgb(0, 0, 0);
+  color: black !important
 }
 
 .darkMode {
@@ -25,16 +27,40 @@ body {
   --secondary-color: #202c33;
   --send-message-background: #202c33;
   --input-color: #2A3942;
-
+  --text-color: white;
   --button-primary-color: #b1b1b1;
   --button-primary-selected-color: #c5c2c2;
   --button-primary-hover-color: #e0e0e0;
-  --alert-notification-color: #8edafc;
+  --alert-notification-color: #145b7c;
   --basic-background-color: #202c33;
   --selected-chat-color: #2a3942;
 
   color: white !important;
 }
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #00000000;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.26);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+
 
 button {
   color: var(--button-primary-color);
@@ -257,7 +283,7 @@ input:checked + .slider:before {
 /*#region CONTACTS*****/
 .contacts {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: overlay;
 }
 .contact {
   user-select: none;
@@ -294,6 +320,7 @@ input:checked + .slider:before {
   padding: 0;
   border-left: 1px solid var(--button-primary-color);
   background-image: url(../assets/img/mine.jpg);
+  
 }
 .chatDark {
     background-image: url(../assets/img/dark-mine.jpg) !important;
@@ -312,7 +339,7 @@ input:checked + .slider:before {
   width: 100%;
   height: 80%;
   padding-bottom: 80px !important;
-  overflow-y: auto;
+  overflow-y: overlay;
   padding: 2rem 5rem;
 }
 
@@ -404,7 +431,7 @@ input:checked + .slider:before {
 }
 .send-message input {
   font-size: 1rem;
-  color: white;
+  color: var(--text-color) !important;
   border: 1px solid var(--button-primary-color);
   border-radius: 10px;
   background-color: var(--input-color);
@@ -418,7 +445,7 @@ input:checked + .slider:before {
   color: rgb(48, 48, 48);
 }
 .color-blue {
-  color: blue !important;
+  color: #4EB7E1 !important;
 }
 
 /*#region Emoji Keyboard*****/
