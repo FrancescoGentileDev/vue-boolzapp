@@ -5,6 +5,7 @@ class Message {
   constructor(message, sent) {
     this.message = message;
     this.sent = sent;
+    this.hide = false;
     this.status = "Online";
     this.isRead = false;
     this.date = new Date();
@@ -25,7 +26,7 @@ const app = new Vue({
   mounted() {
     setTimeout(() => {
        document.querySelector('.loader').classList.add('hide')
-    }, 700);
+    }, 1000);
     
 
     this.activeContact = this.contacts[0];
