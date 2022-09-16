@@ -28,7 +28,7 @@ button {
     margin: 0;
 }
 
-button:not(.research-bar button) {
+button:not(.research-bar button):not(.messages .message-menu button) {
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
@@ -36,11 +36,11 @@ button:not(.research-bar button) {
     padding:0;
     margin: 0.5rem
 }
-button:not(.research-bar button):hover {
+button:not(.research-bar button):not(.messages .message-menu button):hover {
     background-color: var(--button-primary-hover-color) !important;
 }
 
-button:not(.research-bar button):active {
+button:not(.research-bar button):not(.messages .message-menu button):active {
     background-color: var(--button-primary-selected-color) !important;
 }
 
@@ -200,6 +200,7 @@ button:not(.research-bar button):active {
 
 /*#region messages*****/
 .messages {
+    position: relative;
     width: 100%;
     height: 80%;
     padding-bottom: 80px !important;
@@ -208,6 +209,7 @@ button:not(.research-bar button):active {
 }
 
 .message {
+    position: relative;
     margin: 0.5rem;
     background-color: var(--basic-background-color);
     padding: 0.8rem 1rem 0.8rem 0.8rem;
@@ -226,6 +228,56 @@ button:not(.research-bar button):active {
     align-self: flex-end;
     background-color: var(--message-color);
 }
+
+
+
+/*#region message menu*****/
+
+.option-opener {
+    position: absolute;
+    font-size: 0.8rem;
+    width: 1.5rem !important;
+    background-color: transparent;
+    height: 1.5rem !important;
+    top: 0;
+    right: 0;
+    color: rgba(128, 128, 128, 0.151);
+}
+.option-opener:hover {
+    color: rgba(128, 128, 128, 1);
+}
+
+.messages .message .message-menu {
+    display: none !important;
+    position: absolute;
+    z-index: 10;
+    bottom: -60px;
+    right: -50px;
+    width: 150px;
+    height: 100px;
+    box-shadow: 0px 9px 40px -22px #000000b0;
+    background-color: var(--basic-background-color);
+    border-radius: 0.5rem;
+}
+.messages .message .message-menu.open {
+    display: flex !important;
+}
+
+.messages .message-menu button {
+    color: black;
+    text-align: start;
+    padding:15px
+}
+.messages .message-menu button:hover {
+    background-color: var(--button-primary-hover-color);
+}
+.messages .message-menu button:active {
+    background-color: var(--button-primary-selected-color);
+}
+
+/*#endregion message menu*****/
+
+
 
 
 /*#endregion messages*****/
@@ -266,6 +318,8 @@ button:not(.research-bar button):active {
 .color-blue {
     color: blue !important;
 }
+
+
 
 /*#region Emoji Keyboard*****/
     .emoji-keyboard {

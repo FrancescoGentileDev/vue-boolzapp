@@ -20,8 +20,7 @@ const app = new Vue({
     researchBarValue: "",
     researchResult: [],
     emojis,
-    emojiKeyboard: false
-
+    emojiKeyboard: false,
   },
   mounted() {
     this.activeContact = this.contacts[0];
@@ -43,12 +42,12 @@ const app = new Vue({
       return `${date.getHours()}:${date.getMinutes()}`;
     },
     sendMessage() {
-      if(this.userInput){
-      const message = new Message(this.userInput, true);
-      this.activeContact.messages.push(message);
+      if (this.userInput) {
+        const message = new Message(this.userInput, true);
+        this.activeContact.messages.push(message);
         this.userInput = "";
         this.emojiKeyboard = false;
-      this.scrollToBottom();
+        this.scrollToBottom();
         this.getReply(this.activeContact);
       }
     },
@@ -72,7 +71,7 @@ const app = new Vue({
           contact.messages.push(message);
           this.scrollToBottom();
           contact.status = "Online";
-        }, 3000);
+        }, 2000);
       }, 1000);
     },
 
@@ -111,6 +110,16 @@ const app = new Vue({
       console.log(messages.scrollHeight, messages.scrollTop, messages.offsetHeight);
       messages.scrollTop += messages.scrollHeight - messages.offsetHeight + 100;
       console.log(messages.scrollHeight, messages.scrollTop);
+    },
+    openMenu(index) {
+      let menu = document.getElementById("menu-" + index);
+      if (menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        return true
+      } else {
+        menu.classList.add("open");
+        return false
+      }
     },
   },
 });

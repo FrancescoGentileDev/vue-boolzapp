@@ -126,7 +126,7 @@
                 <section class="messages flex-grow-1 d-flex flex-column align-items-start">
 
                     <div class="message" v-for="(message, index) in activeContact.messages"
-                        :class="{sent: message.sent}" :key="index">
+                        :class="{sent: message.sent}" :key="index" v-if="!message.hide">
                         <div class="message-text d-flex-column">
                             <div class="message-content">
                                 {{message.message}}
@@ -137,13 +137,25 @@
                                     :class="{'color-blue': message.isRead}"></i>
                             </div>
                         </div>
+
+                        <button class="option-opener" @click="openMenu(index)"><i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="message-menu d-flex flex-column justify-content-between" :id="'menu-'+index">
+                            <button>Info message</button>
+                            <button @click="message.hide = true">Delete Message</button>
+                        </div>
+
+
                     </div>
+
+
+
                 </section>
 
                 <section class="send-message">
 
                     <div v-if="emojiKeyboard" class="emoji-keyboard">
-                        <button v-for="(emoji, index) in emojis" :key="index" @click="userInput+= emoji" >{{emoji}}</button>
+                        <button v-for="(emoji, index) in emojis" :key="index"
+                            @click="userInput+= emoji">{{emoji}}</button>
                     </div>
 
                     <div class="send-message-inputs d-flex align-items-center justify-content-between">
