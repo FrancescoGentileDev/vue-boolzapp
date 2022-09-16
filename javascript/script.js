@@ -20,6 +20,7 @@ const app = new Vue({
     researchResult: [],
   },
   mounted() {
+    this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];
   },
   methods: {
@@ -43,22 +44,27 @@ const app = new Vue({
     },
 
     makeResearch() {
+      this.researchBarValue = this.researchBarValue.trimStart()
+      if (this.researchBarValue === "") {
+        this.researchResult = [...contacts]
+        return false
+      }
       const researched = [];
 
       this.contacts.forEach((value, index, array) => {
-        const { name } = value;
+        let { name } = value;
         const fullnames = name.split(" ");
         let check = false;
 
-        fullnames.forEach((element) => {
-          element = element.toLowerCase();
-          let researchString = this.researchBarValue.toLowerCase();
-
-          if (element.startsWith(researchString, 0) && !check) {
+        fullnames.forEach((fullnames) => {
+          fullnames = fullnames.toLowerCase();
+          const researchString = this.researchBarValue.toLowerCase();
+          name = name.toLowerCase()
+          if (fullnames.startsWith(researchString, 0)|| name.startsWith(researchString) && !check) {
             check = true
             researched.push(value);
           }
-          
+
         });
 
 

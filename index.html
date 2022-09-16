@@ -73,7 +73,7 @@
 
                 <div class="contacts">
                     <article class="contact" v-for="(contact, index) in researchResult" :key="index"
-                        :class="(activeContact === index) ? 'selected' : '' " @click="activeContact = index">
+                        :class="(activeContact === contact) ? 'selected' : '' " @click="activeContact = contact">
 
                         <div class="profile-container d-flex justify-content-between">
                             <div class="profile d-flex align-items-start">
@@ -105,10 +105,10 @@
                 <header id="contact-header">
                     <div class="profile-container d-flex justify-content-between">
                         <div class="profile d-flex align-items-center">
-                            <img :src="'assets/img/avatar'+contacts[activeContact].avatar+'.jpg'" alt="">
+                            <img :src="'assets/img/avatar'+activeContact.avatar+'.jpg'" alt="">
                             <div class="profile-texts row ms-3 p-0 m-0">
-                                <p class="fw-semibold m-0">{{contacts[activeContact].name}}</p>
-                                <p class="fw-light m-0">{{contacts[activeContact].status}}</p>
+                                <p class="fw-semibold m-0">{{activeContact.name}}</p>
+                                <p class="fw-light m-0">{{activeContact.status}}</p>
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@
 
                 <section class="messages flex-grow-1 d-flex flex-column align-items-start">
 
-                    <div class="message" v-for="(message, index) in contacts[activeContact].messages"
+                    <div class="message" v-for="(message, index) in activeContact.messages"
                         :class="{sent: message.sent}" :key="index">
                         <div class="message-text d-flex-column">
                             <div class="message-content">
