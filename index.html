@@ -68,7 +68,8 @@
 
                 <section class="research-bar row m-0">
                     <button class="col-2"><i class="fa-solid fa-magnifying-glass" @click="makeResearch"></i></button>
-                    <input class="col-10" type="text" name="research" id="research" v-model="researchBarValue" @keyup="makeResearch">
+                    <input class="col-10" placeholder="Ricerca contatto" type="text" name="research" id="research"
+                        v-model="researchBarValue" @keyup="makeResearch">
                 </section>
 
                 <div class="contacts">
@@ -87,7 +88,8 @@
                                         </i>
                                         {{getLastMessage(contact)}}
                                     </p>
-                                    <span class="mt-2">{{getMessageHour(contact.messages[contact.messages.length-1])}}</span>
+                                    <span
+                                        class="mt-2">{{getMessageHour(contact.messages[contact.messages.length-1])}}</span>
                                 </div>
                             </div>
 
@@ -136,16 +138,24 @@
                             </div>
                         </div>
                     </div>
-
-
                 </section>
 
-                <section class="send-message d-flex align-items-center justify-content-between">
-                    <button><i class="fa-regular fa-face-smile"></i></button>
-                    <input v-model="userInput" class="flex-grow-1 py-2 mx-4" placeholder="Scrivi un messaggio"
-                        @keyup.enter="sendMessage" type="text">
-                    <button class="button-send-message" @click="sendMessage"><i
-                            class="fa-solid fa-microphone"></i></button>
+                <section class="send-message">
+
+                    <div v-if="emojiKeyboard" class="emoji-keyboard">
+                        <button v-for="(emoji, index) in emojis" :key="index" @click="userInput+= emoji" >{{emoji}}</button>
+                    </div>
+
+                    <div class="send-message-inputs d-flex align-items-center justify-content-between">
+                        <button><i class="fa-regular fa-face-smile"
+                                @click="emojiKeyboard = !emojiKeyboard"></i></button>
+                        <input v-model="userInput" class="flex-grow-1 py-2 mx-4" placeholder="Scrivi un messaggio"
+                            @keyup.enter="sendMessage" type="text">
+                        <button class="button-send-message" @click="sendMessage"><i
+                                class="fa-solid fa-microphone"></i></button>
+                    </div>
+
+
                 </section>
             </section>
             <!--#endregion CHAT SECTION-->
@@ -165,8 +175,7 @@
     <!--#endregion VUE-->
 
 
-
-
+    <script type="module" src="./javascript/emoji.js"></script>
     <script type="module" src="./javascript/data.js"></script>
     <script type="module" src="javascript/script.js"></script>
     <!--#region BOOTSTRAP SCRIPT-->

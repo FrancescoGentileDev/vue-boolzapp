@@ -231,12 +231,22 @@ button:not(.research-bar button):active {
 /*#endregion messages*****/
 
 /*#region send messages*****/
+.send-message {
+    position: relative;
+}
 .send-message, .button-send-message {
  background-color: var(--send-message-background);
- padding: 0.5rem
 }
 .send-message i {
     font-size: 2rem;
+}
+.send-message-inputs {
+    position: relative;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: var(--send-message-background);
 }
 .send-message input {
     font-size:1rem;
@@ -256,6 +266,23 @@ button:not(.research-bar button):active {
 .color-blue {
     color: blue !important;
 }
+
+/*#region Emoji Keyboard*****/
+    .emoji-keyboard {
+        --size: 70px;
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        min-height: var(--size);
+        top: calc(0px - var(--size));
+        left: 0;
+        background-color: var(--send-message-background);
+        border-bottom: 2px solid var(--button-primary-hover-color);
+        font-size: 2rem;
+    }
+/*#endregion Emoji Keyboard*****/
+
+
 /*#endregion send messages*****/
 
 /*#endregion CHATVIEW*****/
