@@ -94,13 +94,13 @@
                                 <div class="profile-texts row ms-3 p-0 m-0">
                                     <p class="fw-semibold m-0">{{contact.name}}</p>
                                     <p class="fw-light m-0">
-                                        <i v-if="contact.messages[getLastMessageIndex(contact)].sent"
+                                        <i v-if="getAnyOfLastMessage(contact, 'sent')"
                                             class="fa-solid fa-check-double"
-                                            :class="{'color-blue': contact.messages[getLastMessageIndex(contact)].isRead}">
+                                            :class="{'color-blue': getAnyOfLastMessage(contact, 'isRead')}">
                                         </i>
                                         {{getLastMessage(contact)}}
                                     </p>
-                                    <p class="">{{getMessageHour(contact.messages[getLastMessageIndex(contact)])}}</p>
+                                    <p class="">{{getLastMessageHour(contact)}}</p>
                                 </div>
                             </div>
 
@@ -149,12 +149,14 @@
                             </div>
                         </div>
 
-                        <button class="option-opener" @click="openMenu(index)"><i
-                                class="fa-solid fa-chevron-down"></i></button>
-                        <div class="message-menu d-flex flex-column justify-content-between" :id="'menu-'+index">
-                            <button>Info message</button>
-                            <button @click="message.hide = true">Delete Message</button>
-                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu" :id="'menu-'+index">
+                              <li><a class="dropdown-item" href="#">Info message</a></li>
+                              <li><a class="dropdown-item"  @click="activeContact.messages[index].hide = true" href="#">Delete Message</a></li>
+                            </ul>
+                          </div>
 
 
                     </div>
@@ -203,9 +205,9 @@
     <script type="module" src="./javascript/data.js"></script>
     <script type="module" src="javascript/script.js"></script>
     <!--#region BOOTSTRAP SCRIPT-->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
     <!--#endregion BOOTSTRAP SCRIPT-->
 
 </body>

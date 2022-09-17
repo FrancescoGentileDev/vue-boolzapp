@@ -17,7 +17,7 @@ const app = new Vue({
   data: {
     contacts,
     activeContact: {},
-    userInput: "",
+    userInput: "ciaioo",
     researchBarValue: "",
     researchResult: [],
     emojis,
@@ -32,21 +32,29 @@ const app = new Vue({
     this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];
   },
-  methods: {
+  methods: {    
     toggleDarkMode() {
       document.body.classList.toggle('darkMode')
       document.getElementById('chat-view').classList.toggle('chatDark')
 
     },
-    getLastMessage(contact) {
-      let message = contact.messages[this.getLastMessageIndex(contact)].message;
-      let check = false;
+
+    getAnyOfLastMessage(contact, key) {
+      let value = ""
+      let index = this.getLastMessageIndex(contact);
+      if (index !== undefined)
+        value = contact.messages[index][key]
       
-      if (message.length >= 60) {
+      return value
+    },
+    
+    getLastMessage(contact) {
+      let message = this.getAnyOfLastMessage(contact, 'message')
+      
+      if (message.length >= 30) {
         message = message.substring(0, 60);
         message += "...";
       }
-
       return message;
     },
 
@@ -58,6 +66,7 @@ const app = new Vue({
           index = i
         }
       }
+
       return index;
     },
 
@@ -65,6 +74,21 @@ const app = new Vue({
       const date = new Date(message.date);
       return `${date.getHours()}:${date.getMinutes()}`;
     },
+
+
+    getLastMessageHour(contact) {
+      let hour = ""
+      let index = this.getLastMessageIndex(contact)
+      
+      if(index)
+        hour = this.getMessageHour(contact.messages[index])
+      
+      return hour
+      
+
+    },
+
+
     sendMessage() {
       if (this.userInput) {
         const message = new Message(this.userInput, true);
@@ -131,9 +155,9 @@ const app = new Vue({
 
     scrollToBottom() {
       const messages = document.querySelector(".messages");
-      console.log(messages.scrollHeight, messages.scrollTop, messages.offsetHeight);
+     
       messages.scrollTop += messages.scrollHeight - messages.offsetHeight + 100;
-      console.log(messages.scrollHeight, messages.scrollTop);
+
     },
     openMenu(index) {
       let menu = document.getElementById("menu-" + index);
