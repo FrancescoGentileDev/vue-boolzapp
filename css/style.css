@@ -371,13 +371,19 @@ input:checked + .slider:before {
   width: 1.5rem !important;
   background-color: transparent;
   height: 1.5rem !important;
-  top: 0;
+  top: -2px;
   right: 0;
-  color: rgba(128, 128, 128, 0.315);
+  color: rgb(128, 128, 128);
 }
 .option-opener:hover {
   color: rgba(128, 128, 128, 1);
 }
+
+.dropdown-item:active {
+  background-color: var(--brand-color);
+}
+
+
 
 .messages .message .message-menu {
   display: none !important;
@@ -451,7 +457,7 @@ input:checked + .slider:before {
 }
 
 .fa-check-double {
-  color: rgb(77, 77, 77);
+  color: rgb(168, 168, 168);
 }
 .color-blue {
   color: #4EB7E1 !important;

@@ -15,6 +15,7 @@ class Message {
 const app = new Vue({
   el: "#app",
   data: {
+    darkmode: false,
     contacts,
     activeContact: {},
     userInput: "ciaioo",
@@ -27,7 +28,11 @@ const app = new Vue({
     setTimeout(() => {
        document.querySelector('.loader').classList.add('hide')
     }, 1000);
-    
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.darkmode = !this.darkmode;
+      document.body.classList.toggle('darkMode')
+      document.getElementById('chat-view').classList.toggle('chatDark')
+    }
 
     this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];
@@ -52,7 +57,7 @@ const app = new Vue({
       let message = this.getAnyOfLastMessage(contact, 'message')
       
       if (message.length >= 30) {
-        message = message.substring(0, 60);
+        message = message.substring(0, 30);
         message += "...";
       }
       return message;
@@ -158,16 +163,6 @@ const app = new Vue({
      
       messages.scrollTop += messages.scrollHeight - messages.offsetHeight + 100;
 
-    },
-    openMenu(index) {
-      let menu = document.getElementById("menu-" + index);
-      if (menu.classList.contains("open")) {
-        menu.classList.remove("open");
-        return true;
-      } else {
-        menu.classList.add("open");
-        return false;
-      }
     },
   },
 });
