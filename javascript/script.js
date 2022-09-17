@@ -18,7 +18,7 @@ const app = new Vue({
     darkmode: false,
     contacts,
     activeContact: {},
-    userInput: "ciaioo",
+    userInput: "",
     researchBarValue: "",
     researchResult: [],
     emojis,
@@ -161,8 +161,18 @@ const app = new Vue({
     scrollToBottom() {
       const messages = document.querySelector(".messages");
      
-      messages.scrollTop += messages.scrollHeight - messages.offsetHeight + 100;
+      messages.scrollTop = messages.scrollHeight - messages.offsetHeight + 80;
 
     },
   },
 });
+
+const messages = document.querySelector(".messages");
+
+
+messages.addEventListener('scroll', () => {
+  if (messages.scrollTop > (messages.scrollHeight - messages.offsetHeight)) {
+  messages.scrollTop = messages.scrollHeight - messages.offsetHeight - 80
+}
+})
+
