@@ -26,36 +26,37 @@ const app = new Vue({
   },
   mounted() {
     setTimeout(() => {
-       document.querySelector('.loader').classList.add('hide')
+      document.querySelector(".loader").classList.add("hide");
     }, 1000);
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       this.darkmode = !this.darkmode;
-      document.body.classList.toggle('darkMode')
-      document.getElementById('chat-view').classList.toggle('chatDark')
+      document.body.classList.toggle("darkMode");
+      document.getElementById("chat-view").classList.toggle("chatDark");
     }
 
     this.activeContact = this.contacts[0];
     this.researchResult = [...contacts];
   },
-  methods: {    
+  methods: {
     toggleDarkMode() {
-      document.body.classList.toggle('darkMode')
-      document.getElementById('chat-view').classList.toggle('chatDark')
-
+      document.body.classList.toggle("darkMode");
+      document.getElementById("chat-view").classList.toggle("chatDark");
     },
 
     getAnyOfLastMessage(contact, key) {
-      let value = ""
+      let value = "";
       let index = this.getLastMessageIndex(contact);
-      if (index !== undefined)
-        value = contact.messages[index][key]
-      
-      return value
+      if (index !== undefined) value = contact.messages[index][key];
+
+      return value;
     },
-    
+    changeContact(contact) {
+      this.activeContact = contact;
+      this.scrollToBottom()
+    },
     getLastMessage(contact) {
-      let message = this.getAnyOfLastMessage(contact, 'message')
-      
+      let message = this.getAnyOfLastMessage(contact, "message");
+
       if (message.length >= 30) {
         message = message.substring(0, 30);
         message += "...";
@@ -64,11 +65,11 @@ const app = new Vue({
     },
 
     getLastMessageIndex(contact) {
-      let messages = contact.messages
+      let messages = contact.messages;
       let index = undefined;
       for (let i = messages.length - 1; i >= 0; i--) {
         if (!index && !messages[i].hide) {
-          index = i
+          index = i;
         }
       }
 
@@ -80,20 +81,22 @@ const app = new Vue({
       return `${date.getHours()}:${date.getMinutes()}`;
     },
 
-
     getLastMessageHour(contact) {
-      let hour = ""
-      let index = this.getLastMessageIndex(contact)
-      
-      if(index)
-        hour = this.getMessageHour(contact.messages[index])
-      
-      return hour
-      
+      let hour = "";
+      let index = this.getLastMessageIndex(contact);
 
+      if (index) hour = this.getMessageHour(contact.messages[index]);
+
+      return hour;
     },
+    getContextMenuContact(contact) {
+      console.log(contact);
+    },
+    getContextMenuMessage(index) {
+      const element = document.getElementById("menu-" + index);
 
-
+      element.click();
+    },
     sendMessage() {
       if (this.userInput) {
         const message = new Message(this.userInput, true);
@@ -159,20 +162,10 @@ const app = new Vue({
     },
 
     scrollToBottom() {
-      const messages = document.querySelector(".messages");
-     
-      messages.scrollTop = messages.scrollHeight - messages.offsetHeight + 80;
-
+      setTimeout(() => {
+        const messages = document.querySelector(".messages");
+        messages.scrollTop = messages.scrollHeight;
+      }, 5);
     },
   },
 });
-
-const messages = document.querySelector(".messages");
-
-
-messages.addEventListener('scroll', () => {
-  if (messages.scrollTop > (messages.scrollHeight - messages.offsetHeight)) {
-  messages.scrollTop = messages.scrollHeight - messages.offsetHeight - 80
-}
-})
-
